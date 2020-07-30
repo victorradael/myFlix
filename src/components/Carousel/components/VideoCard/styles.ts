@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-interface Props {
+interface IVideoCardProps {
   url: string;
 }
 
-export const VideoCardContainer = styled.a<Props>`
+export const VideoCardContainer = styled.a<IVideoCardProps>`
   border: 2px solid;
   border-radius: 4px;
   text-decoration: none;

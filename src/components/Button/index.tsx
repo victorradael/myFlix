@@ -1,14 +1,17 @@
 import React, { LinkHTMLAttributes } from "react";
 
-import { Button } from "./styles";
+import { Container } from "./styles";
+import { Link, NavLinkProps } from "react-router-dom";
 
-type ButtonProps = LinkHTMLAttributes<HTMLLinkElement>;
+type ButtonProps = NavLinkProps<Link>;
 
-const ButtonLink: React.FC<ButtonProps> = ({ children, href, className }) => {
+const ButtonLink: React.FC<ButtonProps> = ({ children, to, ...rest }) => {
   return (
-    <Button as="a" className={className} href={href}>
-      {children}
-    </Button>
+    <Container>
+      <Link {...rest} to={to}>
+        {children}
+      </Link>
+    </Container>
   );
 };
 

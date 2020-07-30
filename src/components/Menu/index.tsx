@@ -2,7 +2,7 @@ import React from "react";
 
 import "./styles.css";
 import logo from "../../assets/logo.png";
-import ButtonLink from "../Button";
+import Button from "../Button";
 
 const Menu: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const Menu: React.FC = () => {
       <a href="/">
         <img className="Logo" src={logo} alt="myFlix Logo" />
       </a>
-      <ButtonLink href="/">New video</ButtonLink>
+      <Button to="/cadastro/videos">New video</Button>
     </nav>
   );
 };
