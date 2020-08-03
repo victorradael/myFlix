@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-export const Container = styled.div`
+export const Button = styled.div`
   color: var(--white);
   border: 1px solid var(--white);
   box-sizing: border-box;

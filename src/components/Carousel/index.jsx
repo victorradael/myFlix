@@ -1,41 +1,13 @@
 import React from "react";
-import {
-  VideoCardGroupContainer,
-  SliderItem,
-  Title,
-  ExtraLink,
-} from "./styles";
+import { VideoCardGroupContainer, Title, ExtraLink } from "./styles";
 import VideoCard from "./components/VideoCard";
-import Slider from "./components/Slider";
+import Slider, { SliderItem } from "./components/Slider";
 
-// interface IVideoCardGroup {
-//   ignoreFirstVideo?: boolean;
-//   category: ICategory;
-// }
-
-// interface ICategory {
-//   titulo: string;
-//   link: string;
-//   cor: string;
-//   link_extra: ILinkExtra;
-//   videos: IVideo[];
-// }
-
-// interface IVideo {
-//   titulo: string;
-//   url: string;
-// }
-
-// interface ILinkExtra {
-//   url: string;
-//   text: string;
-// }
-
-function Carousel({ category, ignoreFirstVideo }) {
+function Carousel({ ignoreFirstVideo, category }) {
   const categoryTitle = category.titulo;
   const categoryColor = category.cor;
   const categoryExtraLink = category.link_extra;
-  const videos = category.videos;
+  const { videos } = category;
   return (
     <VideoCardGroupContainer>
       {categoryTitle && (

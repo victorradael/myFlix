@@ -1,10 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-interface IVideoCardProps {
-  url: string;
-}
-
-export const VideoCardContainer = styled.a<IVideoCardProps>`
+export const VideoCardContainer = styled.a`
   border: 2px solid;
   border-radius: 4px;
   text-decoration: none;
@@ -23,12 +19,12 @@ export const VideoCardContainer = styled.a<IVideoCardProps>`
   align-items: flex-end;
   padding: 16px;
 
-  transition: opacity 0.3s;
+  transition: opacity .3s;
   &:hover,
   &:focus {
-    opacity: 0.5;
+    opacity: .5;
   }
-
+  
   &:not(:first-child) {
     margin-left: 20px;
   }

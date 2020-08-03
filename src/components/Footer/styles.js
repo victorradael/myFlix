@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+
 
 export const FooterBase = styled.footer`
   background: var(--black);
