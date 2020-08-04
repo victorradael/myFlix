@@ -1,7 +1,5 @@
-import React from 'react';
-
 import styled, { css } from 'styled-components';
-const FormFieldWrapper = styled.div`
+export const FormFieldWrapper = styled.div`
   position: relative;
   textarea {
     min-height: 150px;
@@ -11,9 +9,9 @@ const FormFieldWrapper = styled.div`
   }
 `;
 
-const Label = styled.label``;
+export const Label = styled.label``;
 
-const LabelText = styled.span`
+export const LabelText = styled.span`
   color: #e5e5e5;
   height: 57px;
   position: absolute;
@@ -31,7 +29,11 @@ const LabelText = styled.span`
   transition: 0.1s ease-in-out;
 `;
 
-const Input = styled.input`
+interface IProps {
+  value: string;
+}
+
+export const Input = styled.input<IProps>`
   background: #53585d;
   color: #f5f5f5;
   display: block;
@@ -58,7 +60,7 @@ const Input = styled.input`
     transform: scale(0.6) translateY(-10px);
   }
   ${({ value }) => {
-    const hasValue = value.length > 0;
+    const hasValue = value !== undefined;
     return (
       hasValue &&
       css`
@@ -70,26 +72,41 @@ const Input = styled.input`
   }}
 `;
 
-const FormField = ({ name, value, onChange, type, title }) => {
-  const fieldId = `id_${name}`;
-  const isTextarea = type;
-  const tag = isTextarea === 'textarea' ? 'textarea' : 'input';
-  return (
-    <FormFieldWrapper>
-      <Label htmlFor={fieldId}>
-        <Input
-          as={tag}
-          id={fieldId}
-          name={name}
-          type={type}
-          value={value}
-          name="name"
-          onChange={onChange}
-        />
-        <LabelText>{title}:</LabelText>
-      </Label>
-    </FormFieldWrapper>
-  );
-};
+export const InputTextArea = styled.textarea<IProps>`
+  background: #53585d;
+  color: #f5f5f5;
+  display: block;
+  width: 100%;
+  height: 57px;
+  font-size: 18px;
 
-export default FormField;
+  outline: 0;
+  border: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid #53585d;
+
+  padding: 16px 16px;
+  margin-bottom: 45px;
+
+  resize: none;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+
+  &:focus {
+    border-bottom-color: var(--primary);
+  }
+  &:focus:not([type='color']) + ${LabelText} {
+    transform: scale(0.6) translateY(-10px);
+  }
+  ${({ value }) => {
+    const hasValue = value !== undefined;
+    return (
+      hasValue &&
+      css`
+        &:not([type='color']) + ${LabelText} {
+          transform: scale(0.6) translateY(-10px);
+        }
+      `
+    );
+  }}
+`;

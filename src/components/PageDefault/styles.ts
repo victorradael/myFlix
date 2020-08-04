@@ -1,9 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Main = styled.main`
   background-color: var(--black);
   color: var(--white);
-  flex: 1;
+
+  min-height: 100vh;
+
   flex-direction: column;
   padding-top: 50px;
   padding-left: 5%;
